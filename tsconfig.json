@@ -17,7 +17,7 @@
 
     // Coexistence JS/TS
     "allowJs": true,
-    "checkJS": false,
+    "checkJs": false,
 
     // Génération de fichiers
     "outDir": "./dist",

@@ -1,0 +1,48 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    // Cible de compilation
+    "target": "ES2020",
+    "module": "esnext",
+    "lib": ["DOM", "DOM.Iterable", "ES6"],
+
+    // Options strictes
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+
+    // Coexistence JS/TS
+    "allowJs": true,
+    "checkJS": false,
+
+    // Génération de fichiers
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    // Support des modules
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+
+    // Options de quelité de code
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    
+    // Autres
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}

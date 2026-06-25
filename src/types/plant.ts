@@ -15,6 +15,11 @@ export interface Plant {
     description: string;
 }
 
+export type PlantCard = Pick<Plant, "name" | "id" | "cover" | "price"> & {
+    onAddToCart : () => void;
+}
+
+
 export interface CartItem extends Plant {
     amount: number;
 }

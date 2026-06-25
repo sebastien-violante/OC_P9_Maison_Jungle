@@ -1,7 +1,13 @@
 import Sun from '../../assets/sun.svg'
 import Water from '../../assets/water.svg'
+import type { ScaleValue, CareType } from '../../types/plant'
 
-function CareScale({ scaleValue, careType }) {
+type Props = {
+	scaleValue: ScaleValue;
+	careType: CareType;
+}
+
+function CareScale({ scaleValue, careType }: Props) {
 	const range = [1, 2, 3]
 	const scaleType =
 		careType === 'light' ? (

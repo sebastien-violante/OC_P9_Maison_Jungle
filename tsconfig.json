@@ -14,6 +14,7 @@
     "strict": false,
     "noImplicitAny": false,
     "strictNullChecks": false,
+    "exactOptionalPropertyTypes": true,
 
     // Coexistence JS/TS
     "allowJs": true,
@@ -41,7 +42,6 @@
     "noImplicitReturns": true,
     "noImplicitOverride": true,
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true
   }

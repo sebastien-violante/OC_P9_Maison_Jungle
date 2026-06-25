@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom'
 import '../../styles/Banner.css'
 import logo from '../../assets/logo.png'
+import type { Cart } from '../../types/plant'
 
-function Banner({ cart }) {
+type BannerProps = {
+	cart: Cart;
+}
+
+function Banner({ cart}: BannerProps) {
 	const totalItems = cart ? cart.reduce((acc, item) => acc + item.amount, 0) : 0
 
 	return (

@@ -18,3 +18,5 @@ export interface Plant {
 export interface CartItem extends Plant {
     amount: number;
 }
+
+export type Cart = CartItem[]

@@ -1,7 +1,17 @@
 import { useState, useEffect } from "react";
+import type { CartItem, Plant } from "../types/plant";
 
-export const useCart = () => {
-  const [cart, setCart] = useState([]);
+export const useCart = (): {
+  cart: CartItem[];
+  addToCart: (plant: Plant) => void;
+  removeFromCart: (plantName: CartItem['name']) => void ;
+  updateQuantity: (plantName: CartItem['name'], newAmount: number ) => void;
+  clearCart: () => void ;
+  getTotal: () => number;
+  getItemCount: () => number;
+  getCartItem: (plantName: CartItem['name']) => CartItem | undefined ;
+} => {
+  const [cart, setCart] = useState<CartItem[]>([]);
 
   // Charger le panier depuis localStorage au montage
   useEffect(() => {
@@ -21,7 +31,7 @@ export const useCart = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (plant) => {
+  const addToCart = (plant: Plant): void => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.name === plant.name);
 
@@ -37,11 +47,11 @@ export const useCart = () => {
     });
   };
 
-  const removeFromCart = (plantName) => {
+  const removeFromCart = (plantName: CartItem['name']): void => {
     setCart((prevCart) => prevCart.filter((item) => item.name !== plantName));
   };
 
-  const updateQuantity = (plantName, newAmount) => {
+  const updateQuantity = (plantName: CartItem['name'], newAmount: number ): void => {
     if (newAmount <= 0) {
       removeFromCart(plantName);
       return;
@@ -54,19 +64,19 @@ export const useCart = () => {
     );
   };
 
-  const clearCart = () => {
+  const clearCart = (): void => {
     setCart([]);
   };
 
-  const getTotal = () => {
+  const getTotal = (): number => {
     return cart.reduce((total, item) => total + item.price * item.amount, 0);
   };
 
-  const getItemCount = () => {
+  const getItemCount = (): number => {
     return cart.reduce((count, item) => count + item.amount, 0);
   };
 
-  const getCartItem = (plantName) => {
+  const getCartItem = (plantName: CartItem['name']): CartItem | undefined => {
     return cart.find((item) => item.name === plantName);
   };
 

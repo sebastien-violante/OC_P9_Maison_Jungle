@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import '../../styles/PlantItem.css'
-import type { PlantCard } from '../../types/plant'
+import type { Plant } from '../../types/plant'
 import type { MouseEvent } from 'react'
 
-
-function PlantItem({ cover, name, price, id, onAddToCart }: PlantCard) {
+type PlantItemProps = {
+	plant: Plant;
+	onAddToCart: () => void;
+}
+function PlantItem({ plant, onAddToCart }: PlantItemProps) {
 	const [showAnimation, setShowAnimation] = useState(false)
 
 	const handleAddToCart = (e: MouseEvent<HTMLButtonElement>) => {
@@ -20,13 +23,13 @@ function PlantItem({ cover, name, price, id, onAddToCart }: PlantCard) {
 
 	return (
 		<div className='lmj-plant-item-card'>
-			<Link to={`/plant/${id}`} className='lmj-plant-item-link'>
-				<img src={cover} alt={`${name} cover`} className='lmj-plant-item-cover' />
+			<Link to={`/plant/${plant.id}`} className='lmj-plant-item-link'>
+				<img src={plant.cover} alt={`${plant.name} cover`} className='lmj-plant-item-cover' />
 			</Link>
 			<div className='lmj-plant-item-content'>
 				<div className='lmj-plant-item-header'>
-					<h3 className='lmj-plant-item-name'>{name}</h3>
-					<span className='lmj-plant-item-price'>{price}€</span>
+					<h3 className='lmj-plant-item-name'>{plant.name}</h3>
+					<span className='lmj-plant-item-price'>{plant.price}€</span>
 				</div>
 				<button 
 					className='lmj-plant-item-add-btn'

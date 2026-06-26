@@ -1,4 +1,9 @@
 import '../styles/Categories.css'
+import type { PlantCategory } from '../types/plant'
+
+type CategoryProps = {
+	categories: PlantCategory[];
+}
 
 function Categories({ setActiveCategory, categories, activeCategory }) {
 	return (

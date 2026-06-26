@@ -3,17 +3,22 @@ import { plantList } from '../datas/plantList'
 import PlantItem from './ui/PlantItem'
 import Categories from './Categories'
 import '../styles/ShoppingList.css'
+import type { PlantCategory, Plant} from '../types/plant'
 
-function ShoppingList({ addToCart }) {
-	const [activeCategory, setActiveCategory] = useState('')
-	const categories = plantList.reduce(
+type ShoppingProps = {
+	addToCart: (plant: Plant) => void;
+}
+
+function ShoppingList({ addToCart }: ShoppingProps) {
+	const [activeCategory, setActiveCategory] = useState<PlantCategory | null >(null)
+	const categories = plantList.reduce<PlantCategory[]>(
 		(acc, plant) =>
 			acc.includes(plant.category) ? acc : acc.concat(plant.category),
 		[]
 	)
 
-	const handleAddToCart = (name, price) => {
-		addToCart({ name, price })
+	const handleAddToCart = (plant: Plant): void => {
+		addToCart(plant)
 	}
 
 	return (
@@ -25,17 +30,12 @@ function ShoppingList({ addToCart }) {
 			/>
 
 			<ul className='lmj-plant-list'>
-				{plantList.map(({ id, cover, name, water, light, price, category }) =>
-					!activeCategory || activeCategory === category ? (
-						<li key={id}>
+				{plantList.map((plant) =>
+					!activeCategory || activeCategory === plant.category ? (
+						<li key={plant.id}>
 							<PlantItem
-								id={id}
-								cover={cover}
-								name={name}
-								water={water}
-								light={light}
-								price={price}
-								onAddToCart={() => handleAddToCart(name, price)}
+								plant={plant}
+								onAddToCart={() => handleAddToCart(plant)}
 							/>
 						</li>
 					) : null

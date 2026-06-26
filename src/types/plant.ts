@@ -15,7 +15,7 @@ export interface Plant {
     description: string;
 }
 
-export type PlantCard = Pick<Plant, "name" | "id" | "cover" | "price"> & {
+export type PlantCart = Plant & {
     onAddToCart : () => void;
 }
 

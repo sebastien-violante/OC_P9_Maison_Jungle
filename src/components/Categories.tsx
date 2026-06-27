@@ -3,15 +3,17 @@ import type { PlantCategory } from '../types/plant'
 
 type CategoryProps = {
 	categories: PlantCategory[];
+	activeCategory: PlantCategory;
+	setActiveCategory: React.Dispatch<React.SetStateAction<PlantCategory | null>>
 }
 
-function Categories({ setActiveCategory, categories, activeCategory }) {
+function Categories({ setActiveCategory, categories, activeCategory }: CategoryProps) {
 	return (
 		<div className='lmj-categories'>
 			<div className='lmj-categories-tags'>
 				<button 
-					className={`lmj-category-tag ${activeCategory === '' ? 'active' : ''}`}
-					onClick={() => setActiveCategory('')}
+					className={`lmj-category-tag ${activeCategory === null ? 'active' : ''}`}
+					onClick={() => setActiveCategory(null)}
 				>
 					Toutes
 				</button>

@@ -1,12 +1,16 @@
 import Footer from '../components/layout/Footer'
 import ShoppingList from '../components/ShoppingList'
 import '../styles/Layout.css'
+import type { Plant } from '../types/plant'
 
-function HomePage({ cart, addToCart }) {
+type CartProps = {
+	addToCart: (plant: Plant) => void
+}
+function HomePage({ addToCart }: CartProps) {
 	return (
 		<div>
 			<div className='lmj-layout-inner'>
-				<ShoppingList cart={cart} addToCart={addToCart} />
+				<ShoppingList addToCart={addToCart} />
 			</div>
 			<Footer />
 		</div>

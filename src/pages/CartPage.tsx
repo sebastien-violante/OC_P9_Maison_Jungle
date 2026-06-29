@@ -2,14 +2,22 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PaymentForm from '../components/PaymentForm'
 import '../styles/CartPage.css'
+import type { Cart, CartItem } from '../types/plant'
+import type { PaymentResult } from '../types/payment'
 
-function CartPage({ cart, clearCart, updateQuantity }) {
+type CartPageProps = {
+	cart: Cart;
+	clearCart: () => void;
+	updateQuantity: (plantName: CartItem['name'], newAmount: number ) => void;
+}
+
+function CartPage({ cart, clearCart, updateQuantity }: CartPageProps) {
 	const total = cart.reduce(
 		(acc, plantType) => acc + plantType.amount * plantType.price,
 		0
 	)
 	const [showPaymentForm, setShowPaymentForm] = useState(false)
-	const [paymentResult, setPaymentResult] = useState(null)
+	const [paymentResult, setPaymentResult] = useState<PaymentResult | null>(null)
 	
 	useEffect(() => {
 		document.title = `LMJ: ${total}€ d'achats`

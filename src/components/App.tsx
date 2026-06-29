@@ -7,7 +7,7 @@ import PlantDetailPage from '../pages/PlantDetailPage'
 import NotFoundPage from '../pages/NotFoundPage'
 
 function App() {
-	const { cart, addToCart, removeFromCart, updateQuantity, clearCart, getTotal, getItemCount } = useCart()
+	const { cart, addToCart, updateQuantity, clearCart } = useCart()
 
 	return (
 		<Router>

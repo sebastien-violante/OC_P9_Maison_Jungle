@@ -94,11 +94,11 @@ function CartPage({ cart, clearCart, updateQuantity }) {
 			{showPaymentForm && (
 				<PaymentForm
 					amount={total}
-									onSuccess={(result) => {
-					setPaymentResult(result)
-					setShowPaymentForm(false)
-					clearCart() // Vider le panier après paiement réussi
-				}}
+					onSuccess={(result) => {
+						setPaymentResult(result)
+						setShowPaymentForm(false)
+						clearCart() // Vider le panier après paiement réussi
+					}}
 					onCancel={() => setShowPaymentForm(false)}
 				/>
 			)}

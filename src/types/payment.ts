@@ -17,8 +17,10 @@ export type PaymentErrors = Partial<Record<PaymentField, string>>
 
 // Typage du résultat du paiement
 export interface PaymentResult {
-    transactionId: string;
-    amount: number;
-    status: 'success' | 'failed';
+  success: boolean;
+  transactionId: string;
+  amount: number;
+  currency: string;
+  status: "succeeded";
+  timestamp: string;
 }
-

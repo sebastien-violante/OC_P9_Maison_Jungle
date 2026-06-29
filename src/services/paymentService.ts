@@ -1,5 +1,7 @@
+import type { PaymentData, PaymentResult, PaymentFormData } from "../types/payment";
+
 export class PaymentService {
-  static async processPayment(paymentData) {
+  static async processPayment(paymentData: PaymentData): Promise<PaymentResult>{
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     // Simulation d'un paiement réussi ou refusé
@@ -23,7 +25,7 @@ export class PaymentService {
     }
   }
 
-  static async validatePaymentMethod(paymentMethod) {
+  static async validatePaymentMethod(paymentMethod: PaymentFormData): Promise<{valid: boolean}> {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const isValid =

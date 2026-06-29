@@ -2,7 +2,7 @@ export type ScaleValue = number;
 
 export type CareType = "water" | "light";
 
-export type PlantCategory = "classique" | "extérieur" | "plante grasse" | null ;
+export type PlantCategory = "classique" | "extérieur" | "plante grasse" ;
 
 export interface Plant {
     name: string;

@@ -17,7 +17,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<HomePage addToCart={addToCart} />} />
 					<Route path="/cart" element={<CartPage cart={cart} clearCart={clearCart} updateQuantity={updateQuantity} />} />
-					<Route path="/plant/:id" element={<PlantDetailPage cart={cart} addToCart={addToCart} />} />
+					<Route path="/plant/:id" element={<PlantDetailPage addToCart={addToCart} />} />
 					<Route path="/404" element={<NotFoundPage />} />
 					<Route path="*" element={<NotFoundPage />} />
 				</Routes>

@@ -3,7 +3,7 @@ import type { PlantCategory } from '../types/plant'
 
 type CategoryProps = {
 	categories: PlantCategory[];
-	activeCategory: PlantCategory;
+	activeCategory: PlantCategory | null;
 	setActiveCategory: React.Dispatch<React.SetStateAction<PlantCategory | null>>
 }
 

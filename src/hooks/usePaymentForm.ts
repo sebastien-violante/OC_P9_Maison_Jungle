@@ -46,7 +46,7 @@ export const usePaymentForm = () => {
         // Validation de la date d'expiration
         const [month, year] = value.split("/");
         const currentDate = new Date();
-        const expiryDate = new Date(2000 + parseInt(year), parseInt(month) - 1);
+        const expiryDate = new Date(2000 + parseInt(year!), parseInt(month!) - 1);
         if (expiryDate < currentDate) {
           return "Carte expirée";
         }

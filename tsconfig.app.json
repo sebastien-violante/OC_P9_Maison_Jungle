@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ES2022", // à minima pour les APi de type Map, Set, Promise
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    "module": "ESNext", // système de module utilisé : import, export
+    "moduleResolution": "bundler", // résolution des problèmes d'import comme un bundler
     "strict": true,
-    "noImplicitAny": true,
-    "noImplicitOverride": true,
+    "noImplicitAny": true, // interdiction de tous les any implicites
+    "noImplicitOverride": true, // oblige à utiliser override lors de la redéfinition d'une classe parente
     "noUncheckedIndexedAccess": true,
     "jsx": "react-jsx",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "isolatedModules": true
+    "noEmit": true, // pas de production de fichiers JS par typescript
+    "skipLibCheck": true,  // empêche la vérification des fichiers d.ts contenus dans les dépendances
+    "isolatedModules": true  // force la compilation séparée des fichiers pour être cohérent avec Vite
   },
-  "include": ["src"]
+  "include": ["src"] // la configuration concerne tout le contenu de src
 }

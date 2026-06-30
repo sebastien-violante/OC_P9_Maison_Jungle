@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "composite": true,  // autorise à considérer le projet comme un sous-projet pour être cohérent avec le tsconfig.json
+    "module": "ESNext", // conservation des règles import et export
+    "moduleResolution": "Node",  // typescript va chercher les imports dans node_modules/
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true  // évite la vérification des fichiers d.ts des bibliothèques
   },
   "include": ["vite.config.ts"]
 }

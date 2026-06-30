@@ -1,7 +1,7 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    { "path": "./tsconfig.app.json" }, // compilation de React
+    { "path": "./tsconfig.node.json" } // compilation de Vite
   ]
 }

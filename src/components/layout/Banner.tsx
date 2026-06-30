@@ -7,7 +7,7 @@ type BannerProps = {
 	cart: Cart;
 }
 
-function Banner({ cart}: BannerProps) {
+function Banner({cart}: BannerProps) {
 	const totalItems = cart ? cart.reduce((acc, item) => acc + item.amount, 0) : 0
 
 	return (

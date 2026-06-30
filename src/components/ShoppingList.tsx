@@ -10,7 +10,8 @@ type ShoppingProps = {
 }
 
 function ShoppingList({ addToCart }: ShoppingProps) {
-	const [activeCategory, setActiveCategory] = useState<PlantCategory | null >(null)
+	const [activeCategory, setActiveCategory] = useState<PlantCategory|null>(null)
+	// la valeur initiale de l'accumulateur ([]) nécessite de le typer en tant que PlantCategory pour ne pas être considéré comme "never"
 	const categories = plantList.reduce<PlantCategory[]>(
 		(acc, plant) =>
 			acc.includes(plant.category) ? acc : acc.concat(plant.category),
